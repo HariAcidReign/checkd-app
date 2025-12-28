@@ -47,11 +47,11 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
                     }}
                 >
                     <Image
-                        source={require('../assets/nana-mascot.png')}
+                        source={require('../assets/nana-mascot-png-normal.png')}
                         style={{
-                            width: 100,
-                            height: 100,
-                            resizeMode: 'contain',
+                            width: '100%',
+                            height: '100%',
+                            resizeMode: 'cover',
                         }}
                     />
                 </View>

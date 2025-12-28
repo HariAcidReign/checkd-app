@@ -205,11 +205,11 @@ export function Mascot({ size = 170 }: { size?: number }) {
             }}
         >
             <Image
-                source={require('../../assets/nana-mascot.png')}
+                source={require('../../assets/nana-mascot-png-normal.png')}
                 style={{
-                    width: size * 0.7,
-                    height: size * 0.7,
-                    resizeMode: 'contain',
+                    width: '100%',
+                    height: '100%',
+                    resizeMode: 'cover',
                 }}
             />
         </View>

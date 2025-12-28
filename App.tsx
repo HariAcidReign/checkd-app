@@ -7,6 +7,7 @@ import { SplashScreen } from './components/SplashScreen';
 import { OnboardingStep1 } from './components/OnboardingStep1';
 import { OnboardingStep2 } from './components/OnboardingStep2';
 import { HomeScreen } from './components/screens/HomeScreen';
+import { WeekScreen } from './components/screens/WeekScreen';
 import { useFonts, Inconsolata_400Regular, Inconsolata_600SemiBold, Inconsolata_700Bold } from '@expo-google-fonts/inconsolata';
 import * as ExpoSplashScreen from 'expo-splash-screen';
 
@@ -14,14 +15,7 @@ import * as ExpoSplashScreen from 'expo-splash-screen';
 ExpoSplashScreen.preventAutoHideAsync();
 
 // Placeholder screens
-function WeekScreen() {
-  return (
-    <YStack flex={1} justifyContent="center" alignItems="center" space="$md">
-      <Text fontSize={32} fontWeight="bold" color="$brown" style={{ fontFamily: 'Inconsolata_700Bold' }}>Week Screen</Text>
-      <Text fontSize={16} color="$gray" style={{ fontFamily: 'Inconsolata_400Regular' }}>Placeholder - Phase 3</Text>
-    </YStack>
-  )
-}
+// WeekScreen imported from components/screens/WeekScreen
 
 
 function HistoryScreen() {

@@ -38,11 +38,11 @@ export function OnboardingStep2({ onComplete }: OnboardingStep2Props) {
                     }}
                 >
                     <Image
-                        source={require('../assets/nana-mascot.png')}
+                        source={require('../assets/nana-mascot-png-normal.png')}
                         style={{
-                            width: 85,
-                            height: 85,
-                            resizeMode: 'contain',
+                            width: '100%',
+                            height: '100%',
+                            resizeMode: 'cover',
                         }}
                     />
                 </View>
