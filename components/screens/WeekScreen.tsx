@@ -4,7 +4,7 @@ import { View, Text, YStack, XStack } from 'tamagui'
 import { StatusBar } from 'expo-status-bar'
 import { Feather } from '@expo/vector-icons'
 import { colors } from '../../theme/tokens'
-import { WeeklyInsightCard } from '../../components/week/WeeklyInsightCard'
+import { DailyInsightCard } from '../../components/week/DailyInsightCard'
 import { WeekBarChart } from '../../components/week/WeekBarChart'
 import { DayDetailsBottomSheet } from '../../components/week/DayDetailsBottomSheet'
 import { MOCK_WEEK_DATA, DayData } from '../../types/week'
@@ -65,8 +65,8 @@ export function WeekScreen() {
                         </Text>
                     </YStack>
 
-                    {/* Weekly Insight */}
-                    <WeeklyInsightCard />
+                    {/* Daily Insights */}
+                    <DailyInsightCard />
 
                     {/* Bar Chart Visual */}
                     <WeekBarChart

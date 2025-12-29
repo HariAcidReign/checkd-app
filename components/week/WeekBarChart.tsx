@@ -21,7 +21,7 @@ export function WeekBarChart({ data, onDayPress }: WeekBarChartProps) {
     return (
         <YStack width="100%" space="$md">
             {/* Header */}
-            <XStack justifyContent="space-between" alignItems="center">
+            <XStack justifyContent="center" alignItems="center">
                 <Text
                     fontSize={20}
                     fontWeight="700"
@@ -104,12 +104,13 @@ export function WeekBarChart({ data, onDayPress }: WeekBarChartProps) {
                     <View width="100%" height={1} backgroundColor="#E6DCC3" marginBottom={16} style={{ borderStyle: 'dashed', borderWidth: 1, borderColor: '#E6DCC3' }} />
 
                     {/* Helper Text */}
-                    <XStack alignItems="center" gap={8} opacity={0.6}>
-                        <Feather name="mouse-pointer" size={12} color={colors.brown} />
+                    <XStack alignItems="center" gap={8} opacity={0.9}>
+                        <Feather name="mouse-pointer" size={16} color={colors.brown} />
                         <Text
-                            fontSize={12}
+                            fontSize={15}
+                            fontWeight="700"
                             color="$brown"
-                            style={{ fontFamily: FONT_REGULAR }}
+                            style={{ fontFamily: FONT_BOLD }}
                         >
                             Click on any day to view logs
                         </Text>

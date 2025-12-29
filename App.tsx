@@ -8,6 +8,7 @@ import { OnboardingStep1 } from './components/OnboardingStep1';
 import { OnboardingStep2 } from './components/OnboardingStep2';
 import { HomeScreen } from './components/screens/HomeScreen';
 import { WeekScreen } from './components/screens/WeekScreen';
+import { HistoryScreen } from './components/screens/HistoryScreen';
 import { useFonts, Inconsolata_400Regular, Inconsolata_600SemiBold, Inconsolata_700Bold } from '@expo-google-fonts/inconsolata';
 import * as ExpoSplashScreen from 'expo-splash-screen';
 
@@ -18,14 +19,7 @@ ExpoSplashScreen.preventAutoHideAsync();
 // WeekScreen imported from components/screens/WeekScreen
 
 
-function HistoryScreen() {
-  return (
-    <YStack flex={1} justifyContent="center" alignItems="center" space="$md">
-      <Text fontSize={32} fontWeight="bold" color="$brown" style={{ fontFamily: 'Inconsolata_700Bold' }}>History Screen</Text>
-      <Text fontSize={16} color="$gray" style={{ fontFamily: 'Inconsolata_400Regular' }}>Placeholder - Phase 3</Text>
-    </YStack>
-  )
-}
+// HistoryScreen imported from components/screens/HistoryScreen
 
 function SettingsScreen() {
   return (
@@ -111,7 +105,7 @@ export default function App() {
     <TamaguiProvider config={config}>
       <View flex={1} backgroundColor="$cream">
         {/* Screen content */}
-        <View flex={1} padding="$lg">
+        <View flex={1}>
           {renderScreen()}
         </View>
 
