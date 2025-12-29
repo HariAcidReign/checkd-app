@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text, YStack, XStack } from 'tamagui'
-import { Feather } from '@expo/vector-icons'
 import { colors } from '../../theme/tokens'
 import { DAILY_AI_SUMMARIES } from '../../types/week'
 

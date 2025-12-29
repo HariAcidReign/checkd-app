@@ -2,24 +2,18 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect, useCallback } from 'react';
 import { TamaguiProvider, YStack, Text, View, XStack } from 'tamagui';
 import config from './tamagui.config';
-import { NavIcon } from './components/ui/NavIcon';
-import { SplashScreen } from './components/SplashScreen';
-import { OnboardingStep1 } from './components/OnboardingStep1';
-import { OnboardingStep2 } from './components/OnboardingStep2';
-import { HomeScreen } from './components/screens/HomeScreen';
-import { WeekScreen } from './components/screens/WeekScreen';
-import { HistoryScreen } from './components/screens/HistoryScreen';
+import { NavIcon } from './components/elements/nav-icon/NavIcon';
+import { SplashScreen } from './components/screens/splash-screen/SplashScreen';
+import { OnboardingStep1 } from './components/screens/onboarding/onboarding-step-1/OnboardingStep1';
+import { OnboardingStep2 } from './components/screens/onboarding/onboarding-step-2/OnboardingStep2';
+import { HomeScreen } from './components/screens/home-screen/HomeScreen';
+import { WeekScreen } from './components/screens/week-screen/WeekScreen';
+import { HistoryScreen } from './components/screens/history-screen/HistoryScreen';
 import { useFonts, Inconsolata_400Regular, Inconsolata_600SemiBold, Inconsolata_700Bold } from '@expo-google-fonts/inconsolata';
 import * as ExpoSplashScreen from 'expo-splash-screen';
 
 // Keep splash screen visible while loading fonts
 ExpoSplashScreen.preventAutoHideAsync();
-
-// Placeholder screens
-// WeekScreen imported from components/screens/WeekScreen
-
-
-// HistoryScreen imported from components/screens/HistoryScreen
 
 function SettingsScreen() {
   return (
@@ -139,7 +133,6 @@ export default function App() {
             onPress={() => setActiveTab('settings')}
           />
         </XStack>
-
         <StatusBar style="dark" />
       </View>
     </TamaguiProvider>

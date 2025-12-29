@@ -1,17 +1,16 @@
 import React, { useState, useRef } from 'react'
-import { FlatList, Dimensions } from 'react-native'
-import { View, Text, YStack, XStack } from 'tamagui'
+import { FlatList, View, Text } from 'react-native'
+import { XStack, YStack } from 'tamagui'
 import { StatusBar } from 'expo-status-bar'
 import { Feather } from '@expo/vector-icons'
-import { colors } from '../../theme/tokens'
-import { HistoryWeekCard } from '../../components/history/HistoryWeekCard'
-import { MOCK_HISTORY_DATA } from '../../types/history'
+import { colors } from '../../../theme/tokens'
+import { HistoryWeekCard } from '../../elements/history-week-card/HistoryWeekCard'
+import { MOCK_HISTORY_DATA } from '../../../types/history'
+import { styles } from './HistoryScreen.styles'
+import { HISTORY_SCREEN_CONSTANTS } from './HistoryScreen.constants'
+import { Dimensions } from 'react-native'
 
-// Font family names
-const FONT_REGULAR = 'Inconsolata_400Regular'
-const FONT_BOLD = 'Inconsolata_700Bold'
-
-const SCREEN_WIDTH = Dimensions.get('window').width
+const { width: SCREEN_WIDTH } = Dimensions.get('window')
 
 export function HistoryScreen() {
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -25,21 +24,19 @@ export function HistoryScreen() {
     const scrollToIndex = (index: number) => {
         if (index >= 0 && index < MOCK_HISTORY_DATA.length) {
             flatListRef.current?.scrollToIndex({ index, animated: true })
-            setCurrentIndex(index)
         }
     }
 
-    // Navigation logic
     const canGoLeft = currentIndex > 0
     const canGoRight = currentIndex < MOCK_HISTORY_DATA.length - 1
 
     return (
-        <View flex={1} backgroundColor="$cream">
+        <View style={styles.container}>
             {/* Header */}
-            <YStack paddingTop={60} paddingHorizontal={24} paddingBottom={20} space="$md">
-                <View alignItems="center" justifyContent="center" position="relative">
+            <YStack style={styles.headerContainer} space="$md">
+                <View style={styles.titleWrapper}>
                     {/* Navigation Arrows */}
-                    <XStack width="100%" justifyContent="space-between" alignItems="center" position="absolute" zIndex={10}>
+                    <XStack style={styles.navArrows}>
                         <Feather
                             name="chevron-left"
                             size={32}
@@ -56,13 +53,8 @@ export function HistoryScreen() {
                         />
                     </XStack>
 
-                    <Text
-                        fontSize={32}
-                        fontWeight="800"
-                        color="$brown"
-                        style={{ fontFamily: FONT_BOLD, letterSpacing: 1 }}
-                    >
-                        History
+                    <Text style={styles.headerText}>
+                        {HISTORY_SCREEN_CONSTANTS.TITLE}
                     </Text>
                 </View>
             </YStack>
@@ -72,14 +64,7 @@ export function HistoryScreen() {
                 ref={flatListRef}
                 data={MOCK_HISTORY_DATA}
                 renderItem={({ item }) => (
-                    // Explicitly define Item Width to match Screen Width for Paging
-                    // Use paddingHorizontal to center the card visually within this full-screen-width container
-                    // paddingHorizontal="8" provides the small margin from the edge (reduced from 24)
-                    <View
-                        width={SCREEN_WIDTH}
-                        paddingHorizontal={32}
-                        justifyContent="center"
-                    >
+                    <View style={styles.carouselItem}>
                         <HistoryWeekCard data={item} />
                     </View>
                 )}
@@ -88,20 +73,19 @@ export function HistoryScreen() {
                 pagingEnabled
                 showsHorizontalScrollIndicator={false}
                 onScroll={handleScroll}
-                scrollEventThrottle={16}
-                // To minimize overscroll effects that might look like "pushing"
+                scrollEventThrottle={HISTORY_SCREEN_CONSTANTS.SCROLL_EVENT_THROTTLE}
                 bounces={false}
             />
 
             {/* Pagination Dots */}
-            <XStack justifyContent="center" gap={8} paddingBottom={20}>
+            <XStack style={styles.paginationContainer} gap={8}>
                 {MOCK_HISTORY_DATA.map((_, i) => (
                     <View
                         key={i}
-                        width={8}
-                        height={8}
-                        borderRadius={4}
-                        backgroundColor={currentIndex === i ? colors.brown : '#D3C4A5'}
+                        style={[
+                            styles.dot,
+                            { backgroundColor: currentIndex === i ? colors.brown : '#D3C4A5' }
+                        ]}
                     />
                 ))}
             </XStack>

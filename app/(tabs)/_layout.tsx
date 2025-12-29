@@ -1,6 +1,5 @@
 import { Tabs } from 'expo-router'
-import { View, useTheme } from 'tamagui'
-import { NavIcon } from '../../components/ui/NavIcon'
+import { NavIcon } from '../../components/elements/nav-icon/NavIcon'
 import { colors } from '../../theme/tokens'
 
 export default function TabLayout() {
