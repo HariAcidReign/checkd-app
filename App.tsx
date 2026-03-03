@@ -11,6 +11,7 @@ import { WeekScreen } from './components/screens/week-screen/WeekScreen';
 import { HistoryScreen } from './components/screens/history-screen/HistoryScreen';
 import { useFonts, Inconsolata_400Regular, Inconsolata_600SemiBold, Inconsolata_700Bold } from '@expo-google-fonts/inconsolata';
 import * as ExpoSplashScreen from 'expo-splash-screen';
+import { useExpoPushToken } from './hooks/useExpoPushToken';
 
 // Keep splash screen visible while loading fonts
 ExpoSplashScreen.preventAutoHideAsync();
@@ -29,6 +30,9 @@ export default function App() {
   const [onboardingStep, setOnboardingStep] = useState(0); // 0 = not started, 1 = step1, 2 = step2, 3 = complete
   const [activeTab, setActiveTab] = useState('home');
   const [appIsReady, setAppIsReady] = useState(false);
+
+  // Temporary: logs Expo Push Token to console for backend notification testing
+  useExpoPushToken();
 
   // Load fonts
   const [fontsLoaded] = useFonts({

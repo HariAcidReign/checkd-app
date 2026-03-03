@@ -28,6 +28,16 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-notifications"
+    ]
+  },
+  "extra": {
+    "eas": {
+      "projectId": "38c20ac8-c0d4-458a-b78c-50132fe90cf6"
     }
-  }
+  },
+  "owner": "hariacidreign"
+}
 }
